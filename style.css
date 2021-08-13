@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #E4EFF6;
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 936px;
+    min-height: 500px;
+    margin: 50px auto;
+    box-shadow: 0px 13px 19px rgba(105, 172, 201, 0.24);
+    overflow: hidden;
+}
+
+#tabs {
+    display: inline-flex;
+    background-color: #E4EFF6;
+}
+
+#tabs li {
+    display: flex;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+    width: 50%;
+    padding: 18px;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    justify-content: center;
+    align-content: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+#tabs li:hover {
+    opacity: 0.7;
+}
+
+#tabs li.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+#tabs li.active .star {
+    background-image: url('./assets/tab-star-filled.svg');
+}
+
+.star {
+    margin-right: 8px;
+    display: inline-flex;
+    width: 20px;
+    height: 20px;
+    background-image: url('./assets/tab-star.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#favorites-wrapper {
+    display: none;
+    padding: 40px 0;
+    min-height: 550px;
+}
+
+#catalogue-wrapper .catalogue-item__content {
+    overflow: hidden;
+    transition: height .6s ease;
+    height: 0;
+}
+
+#catalogue-wrapper .catalogue-item__content .message {
+    flex-direction: row;
+}
+
+#catalogue-wrapper .catalogue-item .catalogue-item__header {
+    cursor: pointer;
+    display: flex;
+    min-height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 72px;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 3;
+    cursor: pointer;
+    border-bottom: 1px solid #F5F5F5;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+#catalogue-wrapper .catalogue-item .catalogue-item__header:hover {
+    background-color: #EDF9FF;
+}
+
+#catalogue-wrapper .catalogue-item .child .catalogue-item__header {
+    padding-left: 136px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.expand::before,
+.collapse::before {
+    margin-right: 24px;
+    content: '';
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+.expand::before {
+    background-color: #117DC1;
+    background-image: url('./assets/add.svg');
+}
+
+.collapse::before {
+    transform: rotate(180deg);
+    background-color: #FFAF37;
+    background-image: url('./assets/delete.svg');
+}
+
+.album-covers__favorite-toggle {
+    cursor: pointer;
+    background-color: white;
+    z-index: 1;
+    border-radius: 50%;
+    border: none;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-image: url('./assets/star.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+.album-covers__favorite-toggle:hover {
+    transform: scale(1.2);
+    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.favorite {
+    background-image: url('./assets/yellow-star.svg');
+}
+
+.album-covers {
+    display: flex;
+    margin: 32px auto;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 600px;
+}
+
+.album-covers__item {
+    width: 150px;
+    margin: 0 24px 42px 24px;
+    position: relative;
+}
+
+.album-covers__item img {
+    position: relative;
+    /* overflow: hidden; */
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.album-covers__title {
+    font-size: 14px;
+    line-height: 150%;
+    color: #787878;
+}
+
+.preloader {
+    background: url('./assets/preloader.gif');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    -webkit-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
+#modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#modal-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+#modal-close {
+    position: absolute;
+    top: 32px;
+    right: 32px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('./assets/close.svg');
+}
+
+.message {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: fit-content;
+    min-height: 400px;
+}
+
+.message img {
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.message__title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.message__text {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-title {
+    width: 150px;
+    display: block;
+    position: absolute;
+    padding: 5px 8px;
+    margin: 25px 0 0 -70px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, .69);
+    color: #fff;
+    font-size: 12px;
+    z-index: 10;
+}
