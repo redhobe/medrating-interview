@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.id = 'modal';
         modal.innerHTML =
             `<span id="modal-close"></span>
-            <img id="modal-image" src="${evt.target.dataset.url}">
+             <img id="modal-image" src="${evt.target.dataset.url}">
             `;
         appendNode(document.body, modal);
         document.getElementById('modal-close').addEventListener('click', removeModal);
